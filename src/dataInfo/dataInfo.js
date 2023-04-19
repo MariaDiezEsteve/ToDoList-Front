@@ -20,4 +20,9 @@ async function getData() {
     return {isError, isLoading, data}
 }
 
+
+
+
+
 export default {getData}
+
