@@ -9,13 +9,14 @@
         <div v-if="!dataInfo.isError && !dataInfo.isLoading">
 
             <Form />
-            <List :dataInfo="dataInfo"
+            <List :dataInfo="dataInfo"/>
+            <!-- LAS SIGUIENTES LÍNEAS IRÍAN DENTRO DE LIST
                 @idEditTask = "handleEditId" 
                 @mailEditTask = "handleEditEmail"  
                 @idDeleteTask = "handleDeleteId"
-                @mailDeleteTask = "handleDeleteEmail"         
-            />
-
+                @mailDeleteTask = "handleDeleteEmail"   -->
+            <Edit />
+            <Delete :idTaskDelete="idTaskDelete" :mailTaskDelete="mailTaskDelete"/>
         </div>
 
        
@@ -29,7 +30,6 @@ import List from '../components/List_Todo.vue'
 import info from '@/dataInfo/dataInfo'
 import { ref, onMounted } from 'vue';
 
-// let isLoading = ref(true)
 
 let dataInfo = ref(onMounted(async () => {
     dataInfo.value = await info.getData()
@@ -38,26 +38,31 @@ let dataInfo = ref(onMounted(async () => {
 
 console.log(dataInfo);
 
-const idTaskEdit = ref("")
-const mailTaskEdit = ref("")
-const idTaskDelete = ref("")
-const mailTaskDelete = ref("")
+/* TODO EL CÓDIGO DE ABAJO SERÍA PARA RECOGER LOS EMITS ENVIADOS DESDE LIST_TODO Y GURADARLO EN VARIABLES PARA PODER SER UTILIZADAS */
 
-function handleEditId(id) {
-    idTaskEdit.value = id
-}
+// const idTaskEdit = ref("")
+// const mailTaskEdit = ref("")
+// const idTaskDelete = ref("")
+// const mailTaskDelete = ref("")
 
-function handleEditEmail(mail) {
-    mailTaskEdit.value = mail
-}
+// function handleEditId(id) {
+//     idTaskEdit.value = id
+// }
 
-function handleDeleteId(id){
-    idTaskDelete.value = id
-}
+// function handleEditEmail(mail) {
+//     mailTaskEdit.value = mail
+// }
 
-function handleDeleteEmail(mail){
-    mailTaskDelete.value = mail 
-}
+// function handleDeleteId(id){
+//     idTaskDelete.value = id
+// }
+
+// function handleDeleteEmail(mail){
+//     mailTaskDelete.value = mail 
+// }
+
+
+
 
 </script>
 
