@@ -9,7 +9,12 @@
         <div v-if="!dataInfo.isError && !dataInfo.isLoading">
 
             <Form />
-            <List :dataInfo="dataInfo"/>
+            <List :dataInfo="dataInfo"
+                @idEditTask = "handleEditId" 
+                @mailEditTask = "handleEditEmail"  
+                @idDeleteTask = "handleDeleteId"
+                @mailDeleteTask = "handleDeleteEmail"         
+            />
 
         </div>
 
@@ -33,9 +38,29 @@ let dataInfo = ref(onMounted(async () => {
 
 console.log(dataInfo);
 
+const idTaskEdit = ref("")
+const mailTaskEdit = ref("")
+const idTaskDelete = ref("")
+const mailTaskDelete = ref("")
+
+function handleEditId(id) {
+    idTaskEdit.value = id
+}
+
+function handleEditEmail(mail) {
+    mailTaskEdit.value = mail
+}
+
+function handleDeleteId(id){
+    idTaskDelete.value = id
+}
+
+function handleDeleteEmail(mail){
+    mailTaskDelete.value = mail 
+}
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

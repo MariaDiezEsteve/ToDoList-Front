@@ -11,8 +11,9 @@
                     <h4>What do you have to do?</h4>
 
                     <input type="text" name="title" placeholder="e.g. go shopping" v-model="formData.title">
-                    <input type="textarea" name="description" placeholder="e.g. friday after work" v-model="formData.description">
+                    <input type="text" name="description" placeholder="e.g. friday after work" v-model="formData.description">
                     <input type="text" name="who" placeholder="e.g. María" v-model="formData.who">
+                    <input type="email" name="mail" v-model="formData.mail">
                     
 
                 </form>
@@ -40,7 +41,8 @@ import {reactive} from 'vue'
 const formData = reactive({
     "title": "",
     "description": "",
-    "who": ""
+    "who": "",
+    "mail": ""
 })
 
 
@@ -53,7 +55,8 @@ const formData = reactive({
 
             title: formData.title,
             description: formData.description,
-            who: formData.who
+            who: formData.who,
+            mail: formData.mail
         })
         location.reload()
         
