@@ -13,7 +13,7 @@
                     <input type="text" name="title" placeholder="e.g. go shopping" v-model="formData.title">
                     <input type="text" name="description" placeholder="e.g. friday after work" v-model="formData.description">
                     <input type="text" name="who" placeholder="e.g. María" v-model="formData.who">
-                    <input type="email" name="mail" v-model="formData.mail">
+                    <!-- <input type="email" name="mail" v-model="formData.mail"> -->
                     
 
                 </form>
@@ -82,7 +82,7 @@ h4 {
 }
 
 input {
-    border: 5px double black;
+    border: 1px solid black;
     border-radius: 8px;
     background: #f8f8d9;
     margin: 2rem;
