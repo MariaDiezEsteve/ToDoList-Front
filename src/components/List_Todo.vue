@@ -6,8 +6,10 @@
         <h5>{{ data.who }}</h5>
 
     <div>
-        <button @click="editTask(data.id, data.mail, data.title, data.description)">Edit</button>
+        <button @click="editTask(data.id, data.mail, data.who)">Edit</button>
         <button @click="deleteTask(data.id, data.mail)">Delete</button>
+
+    </div>
 
     </div>
     <div v-show="hiddenEdit">
@@ -21,7 +23,6 @@
             <button @click="editTaskForm">Enter</button>
 
     </div>
-    </div>
 
     
     
@@ -33,13 +34,11 @@ import {defineProps, ref} from 'vue'
 
 const idTask = ref("")
 const mailTask = ref("")
+const whoTask = ref("")
 const hiddenEdit = ref(false)
 const editFormTitle = ref("")
 const editFormDescription = ref("")
 
-
-const titleTask = ref("")
-const descriptionTask = ref("")
 
 let isError = false
 
@@ -81,9 +80,10 @@ function deleteTask(id, mail) {
 
 /* EDIT FORM */
 
-function editTask(id, mail, title, description) {
+function editTask(id, mail, who) {
    idTask.value = id
    mailTask.value = mail
+   whoTask.value = who
    hiddenEdit.value = true   
     /*  PARA ENVIAR EMITS */
     // emit("idEditTask", id)
@@ -95,10 +95,16 @@ function editTask(id, mail, title, description) {
 function editTaskForm(){
     try {
         axios.put(`http://localhost:3000/errands/${idTask.value}`,{
-
+            title: editFormTitle.value,
+            description: editFormDescription.value,
+            who: whoTask.value 
         })
+        location.reload()
+    }catch(error){
+        isError = true 
+    }return {
+        isError
     }
-    
 }
 
 </script>
