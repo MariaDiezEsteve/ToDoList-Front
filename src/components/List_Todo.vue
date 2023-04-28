@@ -42,7 +42,7 @@ const editFormTitle = ref("")
 const editFormDescription = ref("")
 
 
-let isError = false
+let isError = ref(false)
 
 defineProps({
     dataInfo: Object
@@ -59,12 +59,12 @@ defineProps({
 // ])
 
 /* DELETE FORM */
-function deleteTask(id, mail) {
+async function deleteTask(id, mail) {
     idTask.value = id
     mailTask.value = mail
 
         try {
-            axios.delete(`https://todo-back-6klq.onrender.com/errands/${id}`)
+           await axios.delete(`https://todo-back-6klq.onrender.com/errands/${id}`)
             location.reload()
             
         }catch(error){
@@ -94,9 +94,9 @@ function editTask(id, mail, who) {
 
 
 
-function editTaskForm(){
+async function editTaskForm(){
     try {
-        axios.put(`https://todo-back-6klq.onrender.com/errands/${idTask.value}`,{
+      await  axios.put(`https://todo-back-6klq.onrender.com/errands/${idTask.value}`,{
             title: editFormTitle.value,
             description: editFormDescription.value,
             who: whoTask.value 

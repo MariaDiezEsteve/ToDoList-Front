@@ -4,9 +4,9 @@
         <h1>TO DO LIST</h1>
 
         <img src="@/assets/logo.png" alt="" v-if="dataInfo.isError">
-        <img src="@/assets/1488.gif" alt="" v-if="dataInfo.isLoading">
+        <img src="@/assets/1488.gif" alt="" v-if="isLoading">
 
-        <div v-if="!dataInfo.isError && !dataInfo.isLoading">
+        <div v-if="!dataInfo.isError && !isLoading">
 
             <Form />
             <List :dataInfo="dataInfo"/>
@@ -30,9 +30,13 @@ import List from '../components/List_Todo.vue'
 import info from '@/dataInfo/dataInfo'
 import { ref, onMounted } from 'vue';
 
+let isLoading = ref(true) 
 
 let dataInfo = ref(onMounted(async () => {
     dataInfo.value = await info.getData()
+    if( !dataInfo.value.isLoading){
+      isLoading.value = false
+    }
 
 }))
 
