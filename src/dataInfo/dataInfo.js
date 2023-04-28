@@ -9,7 +9,7 @@ async function getData() {
 
     try {
         
-        let response = await axios.get('http://localhost:3000/errands')
+        let response = await axios.get('https://todo-back-6klq.onrender.com/errands')
         data.value= await response.data
 
     }catch (error){
