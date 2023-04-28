@@ -49,11 +49,7 @@ const formData = reactive({
     let isLoading = true;
 
     try {
-<<<<<<< HEAD
         axios.post("https://todo-back-6klq.onrender.com/errands", {
-=======
-        axios.post("https://todolist-json.onrender.com/errands", {
->>>>>>> bc42ffbc4256c6d11b1ee374b7c9e6ea35dddfa5
 
             title: formData.title,
             description: formData.description,

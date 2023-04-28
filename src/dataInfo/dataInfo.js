@@ -9,11 +9,7 @@ async function getData() {
 
     try {
         
-<<<<<<< HEAD
         let response = await axios.get('https://todo-back-6klq.onrender.com/errands')
-=======
-        let response = await axios.get('https://todolist-json.onrender.com/errands')
->>>>>>> bc42ffbc4256c6d11b1ee374b7c9e6ea35dddfa5
         data.value= await response.data
 
     }catch (error){
