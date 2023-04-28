@@ -64,7 +64,7 @@ function deleteTask(id, mail) {
     mailTask.value = mail
 
         try {
-            axios.delete(`https://todolist-json.onrender.com/errands/${id}`)
+            axios.delete(`https://todo-back-6klq.onrender.com/errands/${id}`)
             location.reload()
             
         }catch(error){
@@ -96,7 +96,7 @@ function editTask(id, mail, who) {
 
 function editTaskForm(){
     try {
-        axios.put(`https://todolist-json.onrender.com/errands/${idTask.value}`,{
+        axios.put(`https://todo-back-6klq.onrender.com/errands/${idTask.value}`,{
             title: editFormTitle.value,
             description: editFormDescription.value,
             who: whoTask.value 
