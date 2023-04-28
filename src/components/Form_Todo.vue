@@ -1,9 +1,6 @@
 <template>
 
-    <img src="@/assets/logo.png" alt="" v-if="isError">
-    <img src="@/assets/1488.gif" alt="" v-if="isLoading">
-
-        <div v-if="!isError && !isLoading">
+    
 
             <div class="div-form">
                 <form @submit.prevent>
@@ -22,7 +19,6 @@
 
             </div>
 
-        </div>
 
        
 
@@ -46,7 +42,7 @@ const formData = reactive({
 
  function createData() {
     let isError = false;
-    let isLoading = true;
+
 
     try {
         axios.post("https://todolist-json.onrender.com/errands", {
@@ -56,15 +52,14 @@ const formData = reactive({
             who: formData.who,
             mail: formData.mail
         })
-         location.reload()
         
     }catch (error){
         
         isError = true;
     }
-    isLoading = false;
+   
 
-    return {isError, isLoading}
+    return isError
 }
 
 </script>
