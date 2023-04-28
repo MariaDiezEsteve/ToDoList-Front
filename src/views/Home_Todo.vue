@@ -15,8 +15,7 @@
                 @mailEditTask = "handleEditEmail"  
                 @idDeleteTask = "handleDeleteId"
                 @mailDeleteTask = "handleDeleteEmail"   -->
-            <!-- <Edit />
-            <Delete :idTaskDelete="idTaskDelete" :mailTaskDelete="mailTaskDelete"/> -->
+        
         </div>
 
        
