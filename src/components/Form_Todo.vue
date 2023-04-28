@@ -14,8 +14,6 @@
                     <input type="text" name="description" placeholder="e.g. friday after work" v-model="formData.description">
                     <input type="text" name="who" placeholder="e.g. María" v-model="formData.who">
                     <!-- <input type="email" name="mail" v-model="formData.mail"> -->
-                    
-
                 </form>
 
             <div class="add-button">
@@ -51,14 +49,14 @@ const formData = reactive({
     let isLoading = true;
 
     try {
-        axios.post("http://localhost:3000/errands", {
+        axios.post("https://todolist-json.onrender.com/errands", {
 
             title: formData.title,
             description: formData.description,
             who: formData.who,
             mail: formData.mail
         })
-        location.reload()
+         location.reload()
         
     }catch (error){
         
